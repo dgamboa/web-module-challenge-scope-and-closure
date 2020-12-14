@@ -63,9 +63,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell? **Answer:** It is used in the return of personalDice
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? **Answer:** It is used in the return of `personalDice` into the assigned variable (in this case, `dansRoll` and `zoesRoll`). We can tell because `personalDice` returns a function along with its lexical environment. In this case, it isn't particularly useful since there's no need to preserve state (i.e. our subsequent rolls are independent of the previous ones) other than the person's name.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? **Answer:** The name is always the same and the value of the roll (from 1 - 6) always changes. 
+c. What is the lexical scope of `newRoll`? **Answer:** `newRoll` is scoped within the code block when each variable is set equal to `personalDice(<someName>)` though in this case the state of `newRoll` is fully reset with every call.
 
 
 ### Task 3 - Stretch Goals
