@@ -1,9 +1,12 @@
 import functions from '../index';
 
 const inning = function() {
-    return Math.floor(Math.random() * Math.floor(3));
-  }
-  
+  return Math.floor(Math.random() * Math.floor(3));
+}
+
+const getInningScore = function(callback) {
+  return { Home: callback(), Away: callback() };
+}
 
 describe('fooFunction', ()=>{
     it('foo returns foo', ()=>{
@@ -33,5 +36,15 @@ describe('getInningScore', ()=>{
             Away: expect.any(Number),
           }))
     })
+});
+
+describe('scoreboard', ()=>{
+  it('scoreboard returns an array with properly structured string items', ()=>{
+    let scoreString = new RegExp("Inning \\d: Away \\d - Home \\d");
+    let finalScoreString = new RegExp("(Final Score: Away \\d{1,} - Home \\d{1,}|This game will require extra innings: Away \\d{1,} - Home \\d{1,})");
+    expect(functions.scoreboard(9, inning, getInningScore)[0]).toMatch(scoreString);
+    expect(functions.scoreboard(9, inning, getInningScore)[8]).toMatch(scoreString);
+    expect(functions.scoreboard(9, inning, getInningScore)[9]).toMatch(finalScoreString);
+  })
 });
 
