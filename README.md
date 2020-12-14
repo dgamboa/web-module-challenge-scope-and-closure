@@ -42,14 +42,14 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). **Answer:** closure is the ability for functions to use variables that are upstream from them contextually but not downstream. Practically, it is a way to preserve the state of variables within a confined space to preserve the separation of concerns among modules that utilize the same function in a code base. The most powerful part of closures isn't just that we can store a function inside a variable about initializing a set of conditions but that we can preserve that environment inside of our assignment to be applied in future actions.
 2. Study the following code, then answer the questions below.
 
 ```js
 function personalDice(name){
   return function(){
       // generate random number between 1 and 6
-    const newRoll = Math.floor(Math.random() * 6);
+    const newRoll = Math.floor(Math.random() * 6 + 1);
     console.log(`${name} rolled a ${newRoll}`)
   }
 }
@@ -63,7 +63,7 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
+a. Where is closure used in this code? How can you tell? **Answer:** It is used in the return of personalDice
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 c. What is the lexical scope of `newRoll`? 
 
